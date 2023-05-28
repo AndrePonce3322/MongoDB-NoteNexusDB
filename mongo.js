@@ -2,10 +2,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const password = process.env.PASSWORD;
-
-const connection = `mongodb+srv://andreponce417:${password}@primerbasededatos.j5k5jo0.mongodb.net/DataBase_Primordial?retryWrites=true&w=majority
-`;
+const connection = process.env.MONGODB_URI;
 
 // Mongoose connection
 mongoose
