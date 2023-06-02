@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest --silent --verbose --detectOpenHandles /tests",
     "server": "nodemon index.js",
-    "db": "node mongo.js"
+    "db": "node mongo.js",
+    "start": "npx netlify-lambda serve src",
+    "build": "npx netlify-lambda build src"
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +17,15 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-lambda": "^0.0.2",
     "jest": "^29.5.0",
     "jsonwebtoken": "^9.0.0",
+    "mock-aws-s3": "^4.0.2",
     "mongoose": "^7.1.0",
-    "mongoose-unique-validator": "^4.0.0"
+    "mongoose-unique-validator": "^4.0.0",
+    "netlify-lambda": "^2.0.16",
+    "nock": "^13.3.1",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "supertest": "^6.3.3"

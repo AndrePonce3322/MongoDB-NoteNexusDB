@@ -2,7 +2,7 @@ const notesRouter = require('express').Router();
 
 // Models
 const note_model = require('../models/notes_eschema');
-const user_model = require('../models/users_eschema');
+const user_model = require('../models/notes_eschema');
 
 // MiddleWare´s
 const extract_user = require('../middleware/extract_user_token');
