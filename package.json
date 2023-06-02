@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --silent --verbose --detectOpenHandles /tests",
-    "server": "nodemon index.js",
+    "server": "node index.js",
     "db": "node mongo.js"
   },
   "author": "",
