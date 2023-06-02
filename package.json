@@ -6,9 +6,7 @@
   "scripts": {
     "test": "jest --silent --verbose --detectOpenHandles /tests",
     "server": "nodemon index.js",
-    "db": "node mongo.js",
-    "start": "npx netlify-lambda serve src",
-    "build": "npx netlify-lambda build src"
+    "db": "node mongo.js"
   },
   "author": "",
   "license": "ISC",
