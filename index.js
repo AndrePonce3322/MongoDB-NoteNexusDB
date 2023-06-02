@@ -3,26 +3,25 @@ require('dotenv').config();
 
 // Server
 const express = require('express');
-const serverless = require('serverless-http');
 const cors = require('cors');
 const app = express();
 
 // Mongoose Connection
-require('./src/mongo');
+require('./mongo');
 
 // Routes with Express
-const { usersRouter } = require('./src/controllers/users');
-const notesRouter = require('./src/controllers/notes');
+const { usersRouter } = require('./controllers/users');
+const notesRouter = require('./controllers/notes');
 
 // Middle´s Ware
 app.use(cors());
 app.use(express.json());
 
 // Error´s MiddleWare
-const notFound = require('./src/middleware/notfound');
-const handleError = require('./src/middleware/handleError');
-const loginRouter = require('./src/controllers/login');
-const verifyRouter = require('./src/controllers/verify');
+const notFound = require('./middleware/notfound');
+const handleError = require('./middleware/handleError');
+const loginRouter = require('./controllers/login');
+const verifyRouter = require('./controllers/verify');
 
 app.get('/', (req, res) => {
   res.send(
@@ -45,4 +44,3 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = { app, server };
-module.exports.handler = serverless(app);
