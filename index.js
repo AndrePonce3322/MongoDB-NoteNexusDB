@@ -13,8 +13,14 @@ require('./mongo');
 const { usersRouter } = require('./controllers/users');
 const notesRouter = require('./controllers/notes');
 
+// Cors options
+const corsOptions = {
+  origin: 'https://ng-notenexus.netlify.app',
+  optionsSuccessStatus: 200,
+};
+
 // Middle´s Ware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Error´s MiddleWare
