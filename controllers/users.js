@@ -19,6 +19,7 @@ usersRouter.get('/', extract_user_token, async (req, res) => {
 usersRouter.post('/', async (req, res) => {
   try {
     const { user, password, userName } = req.body;
+    user = user.toLowerCase();
 
     if (!user || !password || !userName)
       return res.status(400).json({
