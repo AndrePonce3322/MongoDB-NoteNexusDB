@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 loginRouter.post('/', async (req, res) => {
   const { body } = req;
   const { userName, password } = body;
+  userName = userName.toLowerCase();
 
   if (!userName || !password) {
     return res.status(400).json({ error: 'Password or Username not send' });
@@ -13,8 +14,7 @@ loginRouter.post('/', async (req, res) => {
 
   const user = await user_model.findOne({ userName });
 
-  const correctPassword =
-    user === null ? false : await bcrypt.compare(password, user.passwordHash);
+  const correctPassword = user === null ? false : bcrypt.compare(password, user.passwordHash);
 
   if (!(user && correctPassword)) {
     return res.status(401).json({ error: 'Invalid user or password' });
@@ -31,7 +31,6 @@ loginRouter.post('/', async (req, res) => {
 
   res
     .send({
-      envio: 'EXITOSO!',
       user: user.user,
       userName: user.userName,
       token,
