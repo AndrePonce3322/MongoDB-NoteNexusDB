@@ -24,8 +24,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Error´s MiddleWare
-const notFound = require('./middleware/notfound');
-const handleError = require('./middleware/handleError');
+const notFound = require('./public/middleware/notfound');
+const handleError = require('./public/middleware/handleError');
 const loginRouter = require('./controllers/login');
 const verifyRouter = require('./controllers/verify');
 
