@@ -13,6 +13,7 @@ mongoose
     mongoose.connection.close();
   });
 
-process.on('uncaughtException', () => {
+process.on('uncaughtException', (e) => {
+  console.error('¡Uncaught Exception! 💥', e);
   mongoose.connection.close();
 });
