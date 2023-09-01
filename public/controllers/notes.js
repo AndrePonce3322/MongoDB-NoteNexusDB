@@ -1,15 +1,15 @@
 const notesRouter = require('express').Router();
 
 // Models
-const note_model = require('../public/models/notes_eschema');
-const user_model = require('../public/models/users_eschema');
+const note_model = require('../models/notes_eschema');
+const user_model = require('../models/users_eschema');
 
 // MiddleWare´s
-const extract_user = require('../public/middleware/extract_user_token');
+const extract_user = require('../middleware/extract_user_token');
 
 // ErrorMiddleWare
-const handleError = require('../public/middleware/handleError');
-const notfound = require('../public/middleware/notfound');
+const handleError = require('../middleware/handleError');
+const notfound = require('../middleware/notfound');
 
 notesRouter.get('/', extract_user, async (req, res) => {
   const { userId } = req;
