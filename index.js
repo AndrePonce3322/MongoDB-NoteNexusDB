@@ -6,12 +6,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Mongoose Connection
-require('./mongo');
+require('./mongo.js')
 
 // Routes with Express
-const { usersRouter } = require('./controllers/users');
-const notesRouter = require('./controllers/notes');
+const { usersRouter } = require('./public/controllers/users.js');
+const notesRouter = require('./public/controllers/notes');
 
 // Cors options
 const corsOptions = {
@@ -26,8 +25,8 @@ app.use(express.json());
 // Error´s MiddleWare
 const notFound = require('./public/middleware/notfound');
 const handleError = require('./public/middleware/handleError');
-const loginRouter = require('./controllers/login');
-const verifyRouter = require('./controllers/verify');
+const loginRouter = require('./public/controllers/login');
+const verifyRouter = require('./public/controllers/verify');
 
 app.get('/', (req, res) => {
   res.send(
