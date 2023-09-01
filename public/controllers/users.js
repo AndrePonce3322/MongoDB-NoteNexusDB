@@ -1,10 +1,10 @@
 const usersRouter = require('express').Router();
-const user_schema = require('../public/models/users_eschema');
+const user_schema = require('../models/users_eschema');
 const jwt = require('jsonwebtoken');
 
 // Encrypt password
 const bcrypt = require('bcrypt');
-const extract_user_token = require('../public/middleware/extract_user_token');
+const extract_user_token = require('../middleware/extract_user_token');
 
 usersRouter.get('/', extract_user_token, async (req, res) => {
   const { userId } = req;
