@@ -10,7 +10,7 @@ require('./mongo.js')
 
 // Routes with Express
 const { usersRouter } = require('./controllers/users.js');
-const notesRouter = require('./controllers/notes');
+const notesRouter = require('./controllers/notes.js');
 
 // Cors options
 const corsOptions = {
@@ -23,10 +23,10 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Error´s MiddleWare
-const notFound = require('./middleware/notfound');
+const notFound = require('./middleware/notfound.js');
 const handleError = require('./middleware/handleError.js');
-const loginRouter = require('./controllers/login');
-const verifyRouter = require('./controllers/verify');
+const loginRouter = require('./controllers/login.js');
+const verifyRouter = require('./controllers/verify.js');
 
 app.get('/', (req, res) => {
   res.send(
