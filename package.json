@@ -9,7 +9,8 @@
   "scripts": {
     "test": "jest --silent --verbose --detectOpenHandles /tests",
     "start": "node ./code/index.js",
-    "db": "node mongo.js"
+    "db": "node mongo.js",
+    "build": "node ./code/index.js"
   },
   "author": "",
   "license": "ISC",
