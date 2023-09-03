@@ -1,8 +1,8 @@
-const { user_schema } = require('../controllers/users');
+const { user_schema } = require('../../controllers/users');
 const api = require('./server.test');
 
 const mongoose = require('mongoose');
-const { server } = require('../index');
+const { server } = require('../../index');
 
 describe.only('usersRouter', () => {
   test('Creating an user to save', async () => {
