@@ -19,7 +19,11 @@ usersRouter.get('/', extract_user_token, async (req, res) => {
 usersRouter.post('/', async (req, res) => {
   try {
     const { user, password, userName } = req.body;
-    user = user.toLowerCase();
+
+    const userData = {
+      userNameTolowerCase: userName.toLowerCase().trim(),
+      userToLowerCase: user.toLowerCase().trim(),
+    }
 
     if (!user || !password || !userName)
       return res.status(400).json({
@@ -44,12 +48,14 @@ usersRouter.post('/', async (req, res) => {
     const passwordHashed = await bcrypt.hash(password, saltRounds);
 
     const data = new user_schema({
-      userName,
-      user,
+      userName: userData.userNameTolowerCase,
+      user: userData.userToLowerCase,
       passwordHash: passwordHashed,
     });
 
     const response = await data.save();
+
+    console.log(response);
 
     const payload = {
       _id: response._id,
