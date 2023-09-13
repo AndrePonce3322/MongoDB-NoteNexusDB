@@ -15,13 +15,13 @@ const { usersRouter } = require('./controllers/users.js');
 const notesRouter = require('./controllers/notes.js');
 
 // Cors options
-// const corsOptions = {
-//   origin: 'https://ng-notenexus.netlify.app',
-//   optionsSuccessStatus: 200,
-// };
+const corsOptions = {
+  origin: ['https://ng-notenexus.netlify.app', 'https://ng-notenexus.vercel.app'],
+  optionsSuccessStatus: 200,
+};
 
 // Middle´s Ware
-app.use(cors('*'));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Error´s MiddleWare
