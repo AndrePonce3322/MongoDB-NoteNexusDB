@@ -5,7 +5,7 @@ const esquema = new Schema({
   content: String,
   important: Boolean,
   favorite: Boolean,
-  date: String,
+  date: Date,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

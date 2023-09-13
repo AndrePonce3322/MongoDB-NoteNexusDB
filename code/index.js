@@ -1,6 +1,8 @@
 // Read env files and execute
 require('dotenv').config();
 
+console.clear()
+
 // Server
 const express = require('express');
 const cors = require('cors');
@@ -13,13 +15,13 @@ const { usersRouter } = require('./controllers/users.js');
 const notesRouter = require('./controllers/notes.js');
 
 // Cors options
-const corsOptions = {
-  origin: 'https://ng-notenexus.netlify.app',
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: 'https://ng-notenexus.netlify.app',
+//   optionsSuccessStatus: 200,
+// };
 
 // Middle´s Ware
-app.use(cors(corsOptions));
+app.use(cors('*'));
 app.use(express.json());
 
 // Error´s MiddleWare

@@ -16,8 +16,10 @@ module.exports = (req, res, next) => {
   // Taking the second value of the array of authorization TOKEN
   const userToken = authorization.substring(7);
 
+  const envTokenPassword = process.env.TOKEN_SECRET_KEY.toString();
+
   try {
-    const decodeToken = jwt.verify(userToken, process.env.TOKEN_SECRET_KEY);
+    const decodeToken = jwt.verify(userToken, envTokenPassword);
     // Result
     req.userId = decodeToken._id;
     req.userName = decodeToken.userName;

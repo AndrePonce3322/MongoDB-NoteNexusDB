@@ -63,7 +63,7 @@ notesRouter.post('/', extract_user, async (req, res, next) => {
     user: userId,
     favorite,
     important,
-    date: new Date().toLocaleString('en'),
+    date: new Date(),
   });
 
   const saveNote = await send.save();
@@ -102,7 +102,7 @@ notesRouter.put('/:id', extract_user, async (req, res, next) => {
   const update = {
     content: content,
     important,
-    date: new Date().toLocaleString('en'),
+    date: new Date(),
   };
 
   note_model
